@@ -11,11 +11,12 @@ This is EPI Judge with Python solutions and most of the well-known & used Algori
 If you do not have `git`, here's a good [tutorial](https://www.atlassian.com/git/tutorials/install-git) on installing git itself.
 
 ## Setup - **Important**
+
 After cloning/downloading the project update the project path `PROJECT_PATH` in `html/js/index.js`
 
 example:
 
-``` js
+```js
 const PROJECT_PATH = "/Users/ravilochan/Projects/EPI.py";
 ```
 
