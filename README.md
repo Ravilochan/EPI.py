@@ -10,6 +10,15 @@ This is EPI Judge with python solutions and most of well known & used Algorithms
 
 If you do not have `git`, here's a good [tutorial](https://www.atlassian.com/git/tutorials/install-git) on installing git itself.
 
+\*\* Important
+After cloning / downloading project update the project path `PROJECT_PATH` in `html/js/index.js`
+
+example:
+
+```js
+const PROJECT_PATH = "/Users/ravilochan/Projects/EPI.py";
+```
+
 ## Running the judge from the command line
 
     python3 <program_name>.py

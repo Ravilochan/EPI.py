@@ -1,5 +1,5 @@
+const PROJECT_PATH = "/Users/ravilochan/Projects/EPI.py"
 const EPI_DATA = translateProblemMappings(problem_mapping);
-
 const ALL_LANGUAGES = ['python'];
 
 Vue.component('donut', {
@@ -41,7 +41,7 @@ Vue.component('problem-plot', {
         openInVSCode: function () {
             // Use a custom URI scheme to open the file in VSCode.
             // Update this to work with your project files
-            window.location.href = `vscode://file/Users/ravilochan/Projects/EPI.py/${this.data.filename}`;
+            window.location.href = `vscode://file${PROJECT_PATH}/${this.data.filename}`;
         }
     },
     template: `
