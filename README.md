@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is EPI Judge with python solutions and most of famous and used Algorithms in Python
+This is EPI Judge with python solutions and most of well known & used Algorithms in Python
 
 ## Installation
 
