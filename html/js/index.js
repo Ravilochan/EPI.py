@@ -1,11 +1,6 @@
-// [ ] CSS
-// [ ] Drop-down animation
-// [x] Cookies
-// [x] Togglable languages
-// [ ] links
 const EPI_DATA = translateProblemMappings(problem_mapping);
 
-const ALL_LANGUAGES = ['cpp', 'java', 'python'];
+const ALL_LANGUAGES = ['python'];
 
 Vue.component('donut', {
     props: ['x', 'size', 'width', 'rad', 'lineWidth', 'font'],
@@ -42,19 +37,26 @@ Vue.component('problem-donut', {
 
 Vue.component('problem-plot', {
     props: ['data', 'extended', 'lang'],
+    methods: {
+        openInVSCode: function () {
+            // Use a custom URI scheme to open the file in VSCode.
+            // Update this to work with your project files
+            window.location.href = `vscode://file/Users/ravilochan/Projects/EPI.py/${this.data.filename}`;
+        }
+    },
     template: `
       <div class="problem-plot">
-        <problem-donut align=center :x=(data.passed/data.total)>
+        <problem-donut align=center :x="(data.passed/data.total)">
         </problem-donut>
         <p> {{data.passed}}/{{data.total}} </p>
         <transition name="fade"> 
-            <p v-if="extended"><a :href=data.filename style="color: #004c8c">source</a></p>
+            <p v-if="extended"><a @click="openInVSCode" style="color: #004c8c; cursor: pointer;">source</a></p>
         </transition>
         <transition name="fade"> 
-        <p v-if="!extended" style="visibility: hidden;"><a :href=data.filename>source</a></p>
+            <p v-if="!extended" style="visibility: hidden;"><a @click="openInVSCode" style="cursor: pointer;">source</a></p>
         </transition>
       </div>
-      `
+    `
 })
 
 Vue.component('chapter-plot', {
@@ -95,7 +97,7 @@ Vue.component('problem-card', {
             <div class="problem-card-content mdl-card__supporting-text">
               <span class="problem-name">{{problem.name}}</span>
               <problem-plot v-for="l in this.$root.langs" 
-                            :data=problem[l] :extended="hover" :lang=l>
+                :data=problem[l] :extended="hover" :lang=l>
               </problem-plot>
             </div>
           </div>
